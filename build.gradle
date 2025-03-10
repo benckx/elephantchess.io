@@ -3,6 +3,7 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "$kotlinVersion"
     id "com.adarshr.test-logger" version "4.0.0"
     id 'maven-publish'
+    id 'signing'
 }
 
 subprojects {
@@ -36,6 +37,20 @@ subprojects {
 }
 
 project(":xiangqi-core") {
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                artifactId = 'xiangi-core'
+                from components.java
+            }
+        }
+    }
+
     dependencies {
         testImplementation project(":xiangqi-core-test-utils")
     }
