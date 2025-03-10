@@ -3,7 +3,6 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "$kotlinVersion"
     id "com.adarshr.test-logger" version "4.0.0"
     id 'maven-publish'
-    id 'signing'
 }
 
 subprojects {
